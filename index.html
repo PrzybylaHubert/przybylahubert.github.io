@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+    <div class="main">
+        <div class="section">
+            <div class="header-1">
+                Widok dziecka
+            </div>
+            <div class="example-navbar">
+                <div class="navbar-example-item">
+                    <div class="navbar-example-link">Przykładowy link</div>
+                </div>
+                <div class="navbar-example-item">
+                    <div class="navbar-example-link">Przykładowy link</div>
+                </div>
+                <div class="navbar-example-item">
+                    <div class="navbar-example-link">Przykładowy link</div>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="input-section">
+                    <div class="content-header">
+                        <h1>Jak się dzisiaj czujesz?</h1>
+                    </div>
+                    <div class="content-content">
+                        <hr>
+                        <div class="emotion-pictures">
+                            <div class="image-holder">
+                                <div class="img" data-emotion="Szczęśliwy">
+                                    <img src="1-happy.png" class="emotion-picture">
+                                </div>
+                            </div>
+                            <div class="image-holder">
+                                <div class="img" data-emotion="Zdenerwowany">
+                                    <img src="2-angry.png" class="emotion-picture">
+                                </div>
+                            </div>
+                            <div class="image-holder">
+                                <div class="img" data-emotion="Spokojny">
+                                    <img src="3-relaxed.png" class="emotion-picture">
+                                </div>
+                            </div>
+                            <div class="image-holder">
+                                <div class="img" data-emotion="Znudzony">
+                                    <img src="4-grounchy.png" class="emotion-picture">
+                                </div>
+                            </div>
+                            <div class="image-holder">
+                                <div class="img" data-emotion="Smutny">
+                                    <img src="5-lonely.png" class="emotion-picture">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="emotion-name-holder">
+                            <div class="emotion-name">
+
+                            </div>
+                        </div>
+                        <div class="input-content">
+                            <h2>Dlaczego tak się czujesz?</h2>
+                            <textarea class="textarea-input" placeholder="(opcjonalne)"></textarea>
+                        </div>
+                        <div class="error-holder">
+                            <b>
+                            <div class="error">
+                                
+                            </div>
+                            </b>
+                        </div>
+                        <div class="submit-button-holder">
+                            <input type="button" class="submit-button" value="Wyślij odpowiedź">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-footer">
+                Stopka 2023
+            </div>
+        </div>
+        <div class="section">
+            <div class="header-2">
+                Widok rodzica
+            </div>
+            <div class="example-navbar">
+                <div class="navbar-example-item">
+                    <div class="navbar-example-link">Przykładowy link</div>
+                </div>
+                <div class="navbar-example-item">
+                    <div class="navbar-example-link">Przykładowy link</div>
+                </div>
+                <div class="navbar-example-item">
+                    <div class="navbar-example-link">Przykładowy link</div>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="input-section">
+                    <div class="content-header">
+                        <h1>Zapisane emocje:</h1>
+                    </div>
+                    <div class="content-content">
+                        <hr>
+                        <div class="emotions">
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="example-footer">
+                Stopka 2023
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    var clicked = false;
+    $(".img").on("mouseover", function() {
+        if(clicked == false) {
+            emotion = $(this).data('emotion')
+            $(".emotion-name").html(emotion);
+        }
+    })
+    $(".img").on("mouseout", function() {
+        if(clicked == false) {
+            $(".emotion-name").html(null);
+        }
+    })
+
+    $(".img").click(function() {
+        clicked = true;
+        emotion = $(this).data('emotion');
+        $(".emotion-name").html(emotion);
+        $(".emotion-picture").removeClass("clicked");
+        $(this).children(".emotion-picture").toggleClass("clicked")
+    });
+
+    $(".submit-button").click(function() {
+        if($(".emotion-name").text().trim() == '') {
+            $(".error").html("Musisz wybrać jak się czujesz!");
+            return;
+        }
+        $(".error").html(null);
+        let emotionImages = {
+            'Szczęśliwy': '1-happy.png',
+            'Zdenerwowany': '2-angry.png',
+            'Spokojny': '3-relaxed.png',
+            'Znudzony': '4-grounchy.png',
+            'Smutny': '5-lonely.png',
+        }
+        let emotionImage = emotionImages[$(".emotion-name").text().trim()];
+        let emotionText = $('.textarea-input').val().trim();
+        if(emotionText == '') {
+            emotionText = "( DZIECKO NIE UZUPEŁNIŁO EMOCJI )";
+        }
+        const date = new Date();
+        let emotionDate = date.getDate() + "." + parseInt(date.getMonth() + 1) + "." + date.getFullYear();
+        let emotionHour = date.getHours() + ":" + date.getMinutes();
+        let emotionToAdd = '<div class="emotion"><div class="emotion-image-holder"><img src="' + emotionImage + ' " class="static-picture"></div><hr><div class="text-output">' + emotionText + '</div><hr><div class="date">' + emotionDate + '<br>' + emotionHour + '</div></div>';
+        $(".emotions").append(emotionToAdd);
+    });
+
+</script>

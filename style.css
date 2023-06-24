@@ -1,0 +1,232 @@
+body {
+    width:100%;
+    margin:0px;
+    font-family: arial;
+}
+
+.main {
+    width:100%;
+    display:flex;
+}
+
+.section{
+    width:50%;
+    border-right:5px solid black;
+    height:100vh;
+}
+
+
+.example-navbar {
+    width:100%;
+    background-color:rgb(200,200,200);
+    display:flex;
+    justify-content: space-around;
+    height: 40px;
+}
+
+.navbar-example-item {
+    width: 100%;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    font-size:20px;
+}
+
+.navbar-example-item:hover {
+    background-color:rgb(170, 170, 170);
+}
+
+.header-1 {
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    font-size: 40px;
+    background-color: rgb(180, 101, 173);
+}
+
+.header-2 {
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    font-size: 40px;
+    background-color: rgb(101, 162, 180);
+}
+
+.example-footer {
+    width:100%;
+    background-color:rgb(200,200,200);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
+
+.content {
+    margin: 20px;
+    box-sizing: border-box;
+}
+
+.input-section {
+    background-color:(240,240,240);
+    box-shadow: 0.5px 0.5px 3px 0.5px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+h1 {
+    margin:auto;
+}
+
+.content-header {
+    display:flex;
+    justify-content: center; 
+    width:100%;
+}
+
+.emotion-picture {
+    width: 60px;
+    height: 60px;
+    transition: 0.3s;
+    filter: grayscale(100%);   
+}
+
+.emotion-picture:hover {
+    width: 90px;
+    height: 90px;
+    transition: 0.3s;
+    filter: grayscale(0%);   
+}
+
+.clicked {
+    width: 90px;
+    height: 90px;
+    transition: 0.3s;
+    filter: grayscale(0%);   
+}
+
+.emotion-pictures {
+    width: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 20px;
+    height:100px;
+}
+
+.content-content {
+    width:95%;
+    margin:auto;
+}
+
+.image-holder {
+    width: 90px;
+    height: 90px;
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+}
+
+.emotion-name {
+    width:50%;
+    height:50px;
+    text-align:center;
+    margin:10px;
+    font-size:30px;
+    background-color:aliceblue;
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 20px;
+}
+
+.emotion-name-holder {
+    width:100%;
+    text-align:center;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-content {
+    width:100%;
+    text-align:center;
+    margin-top:50px;
+}
+
+.textarea-input {
+    width:500px;
+    height:30px;
+}
+
+.submit-button-holder {
+    width:100%;
+    text-align:center;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.submit-button {
+    font-size:25px;
+    background-color: white;
+    border: none;
+    transition: 0.3s;
+    padding:10px 15px;
+    border-radius: 10px;
+    box-shadow: 0.5px 0.5px 3px 0.5px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: aquamarine;
+    transition: 0.3s;
+}
+
+.error-holder {
+    height:60px;
+    width:100%;
+    text-align:center;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.error {
+    color:Red;
+}
+
+.emotions {
+    display:flex;
+    flex-direction: column;
+}
+
+.emotion {
+    display:flex;
+    width:100%;
+    justify-content: space-between;
+}
+
+.emotion-image-holder {
+    margin-right: 20px;
+}
+
+.static-picture {
+    width: 60px;
+    height: 60px;
+}
+
+.text-output {
+    display:flex;
+    width:60%;
+}
+
+.date {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
